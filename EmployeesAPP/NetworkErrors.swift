@@ -11,6 +11,7 @@ enum NetworkErrors: Error, CustomStringConvertible {
     case noHTTP
     case parseJson(Error)
     case badStatusCode(Int)
+    case general(Error)
     
     var description: String {
         switch self {
@@ -20,6 +21,8 @@ enum NetworkErrors: Error, CustomStringConvertible {
             "Fallo el parseo del json \(error.localizedDescription)"
         case .badStatusCode(let statusCode):
             "Error de status \(statusCode)"
+        case .general(let error):
+            "Error general \(error)"
         }
     }
 }

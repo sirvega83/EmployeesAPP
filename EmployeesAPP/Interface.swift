@@ -10,5 +10,5 @@ import Foundation
 let mainURL = URL(string: "https://acacademy-employees-api.herokuapp.com/api")!
 
 extension URL {
-    static let getEmpleados = mainURL.appending(path: "getEmpleados")
+    static let empleadosURL = mainURL.appending(path: "getEmpleados")
 }

@@ -16,11 +16,10 @@ struct ContentView: View {
                 Text(empleado.firstName)
             }
         }
-        .padding()
     }
 }
 
 #Preview {
-    ContentView()
+    ContentView(empleadosVM: .previewLocalTEst)
 }
 

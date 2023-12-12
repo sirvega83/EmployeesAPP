@@ -13,17 +13,19 @@ protocol EmployeeInteractorProtocol {
 
 struct EmployeeInteractor: EmployeeInteractorProtocol {
     func getEmpleados() async throws -> [Employee] {
-        let (data, response) = try await URLSession.shared.data(for: .getCustom(url: .getEmpleados))
-        guard let response = response as? HTTPURLResponse else { throw NetworkErrors.noHTTP }
-        if response.statusCode == 200 {
-            do {
-                return try JSONDecoder().decode([EmployeeDTO].self, from: data).map(\.toPresentation)
-            } catch {
-                throw NetworkErrors.parseJson(error)
-            }
-        } else {
-            throw NetworkErrors.badStatusCode(response.statusCode)
-        }
+        try await getJSON(request: .getCustom(url: .empleadosURL), type: [EmployeeDTO].self).map(\.toPresentation)
+        
+//        let (data, response) = try await URLSession.shared.data(for: .getCustom(url: .getEmpleados))
+//        guard let response = response as? HTTPURLResponse else { throw NetworkErrors.noHTTP }
+//        if response.statusCode == 200 {
+//            do {
+//                return try JSONDecoder().decode([EmployeeDTO].self, from: data).map(\.toPresentation)
+//            } catch {
+//                throw NetworkErrors.parseJson(error)
+//            }
+//        } else {
+//            throw NetworkErrors.badStatusCode(response.statusCode)
+//        }
     }
 }
 

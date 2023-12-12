@@ -13,4 +13,5 @@ struct Employee: Identifiable {
     let username: String
     let firstName: String
     let lastName: String
+    let avatar: String
 }

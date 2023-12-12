@@ -13,11 +13,12 @@ struct EmployeeDTO: Codable {
     let username: String
     let firstName: String
     let lastName: String
+    let avatar: String
     
 }
 
 extension EmployeeDTO {
     var toPresentation: Employee {
-        Employee(id: id, email: email, username: username, firstName: firstName, lastName: lastName)
+        Employee(id: id, email: email, username: username, firstName: firstName, lastName: lastName, avatar: avatar)
     }
 }
